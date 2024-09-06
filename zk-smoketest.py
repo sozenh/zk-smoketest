@@ -144,7 +144,7 @@ if __name__ == '__main__':
     zk = ZKClient(servers[-1], options.timeout)
     # ensure this server is up to date with leader (ephems)
     zk.async()
-    zk.delete(rootpath)
+    # zk.delete(rootpath)
 
     zk.close()
 

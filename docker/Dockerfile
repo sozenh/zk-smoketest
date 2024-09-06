@@ -1,9 +1,9 @@
 FROM python:2.7-slim
 
-RUN apt-get update
-RUN apt-get install -y wget unzip
-RUN apt-get install -y libzookeeper-mt-dev
-RUN apt-get install -y gcc
+RUN sed -i 's|http://deb.debian.org/debian|http://mirrors.aliyun.com/debian|g' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends build-essential wget unzip libzookeeper-mt-dev gcc && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN pip install zkpython
 
